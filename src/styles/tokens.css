@@ -1,0 +1,25 @@
+:root {
+  --color-primary-1: #2a41e8;
+  --color-primary-2: #3854eb;
+  --color-primary-3: #4063f5;
+  --color-primary-4: #4583ff;
+  --color-primary-5: #5c8afa;
+  --color-primary-6: #f0f8ff;
+  --color-secondary-1: #fe770e;
+  --color-black: #22242a;
+  --color-dark-grey: #555b6d;
+  --color-grey: #909ba7;
+  --color-light-grey: #e6e7e8;
+  --color-while-grey: #f1f2f3;
+  --color-while-bas: #f7f8f7;
+  --color-white: #ffffff;
+  --color-backdrop: rgb(0 0 0 / 60%);
+  --spacing-xs: 4px;
+  --spacing-s: 8px;
+  --spacing-m: 12px;
+  --spacing-l: 16px;
+  --spacing-xl: 20px;
+  --spacing-xxl: 24px;
+  --spacing-3xl: 32px;
+  --font-family: "SVN-Poppins", "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}

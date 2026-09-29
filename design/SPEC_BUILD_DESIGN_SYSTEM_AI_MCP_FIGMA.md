@@ -1,5 +1,5 @@
 Sử dụng Figma MCP để phân tích Design System và các screen UI/UX hiện có trong file Figma của project.
-
+https://www.figma.com/design/tgIi3EOslIJv5ZxavmhXMO/temply-draft?node-id=3-10&t=nTpwyMPnPFd8aSIk-1
 Mục tiêu cuối cùng:
 
 Tạo file:

@@ -1,0 +1,25 @@
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.page h1,
+.page p {
+  margin: 0;
+}
+
+.page h1 {
+  color: var(--color-primary-2);
+  font-size: 48px;
+}
+
+.page a {
+  margin-top: 12px;
+  color: var(--color-primary-2);
+  font-size: 14px;
+}

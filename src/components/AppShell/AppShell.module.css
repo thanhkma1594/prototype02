@@ -1,0 +1,8 @@
+.shell {
+  width: min(100%, 360px);
+  min-height: 100svh;
+  margin: 0 auto;
+  overflow-x: hidden;
+  background: var(--color-white);
+  box-shadow: 0 0 24px rgb(34 36 42 / 6%);
+}
