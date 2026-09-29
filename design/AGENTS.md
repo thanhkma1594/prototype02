@@ -216,6 +216,11 @@ Nếu requirement chỉ định mobile web prototype:
 
 - ưu tiên layout cho viewport mobile;
 - tránh thiết kế desktop-first rồi thu nhỏ cơ học;
+- screen/page phải full width trong mobile viewport;
+- viewport lớn hơn mobile có thể dùng mobile canvas max-width đã được requirement/architecture quy định và căn giữa;
+- không dùng kích thước frame Figma làm width hoặc height cố định của page;
+- dùng dynamic viewport làm min-height và để nội dung dài cuộn tự nhiên;
+- không đưa system status bar giả lập vào screen/page;
 - đảm bảo touch target hợp lý;
 - tránh horizontal overflow ngoài chủ đích.
 

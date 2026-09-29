@@ -205,6 +205,14 @@ Date modified filter
 
 Do not infer behavior from visual affordances.
 
+Figma frames also contain simulated system status bars (`battery indicator` / `Status bar - Android`). Current project requirement overrides those artifacts:
+
+```text
+DO NOT IMPLEMENT OR RENDER A SYSTEM STATUS BAR.
+```
+
+This includes time, date, cellular signal, Wi-Fi, battery percentage, and battery icons.
+
 ---
 
 ## 7. Technical Architecture
@@ -262,9 +270,25 @@ Primary reference viewport from Figma:
 360 × 800
 ```
 
-This prototype is mobile-only.
+This size is a visual reference only. It must not become a fixed width or max-width in runtime code.
 
-Do not spend time building tablet or desktop responsive layouts unless needed to prevent the prototype from breaking in a browser window.
+All screen/page shells must:
+
+```text
+use width: 100% inside mobile viewports
+use max-width: 480px and center on larger viewports
+avoid a fixed 360px width
+use min-height: 100dvh
+avoid a fixed 800px height
+```
+
+Full-screen overlay backdrops cover the viewport. Overlay content such as the Type bottom sheet follows the same mobile canvas width as the page: full width on mobile, maximum `480px` and centered on larger viewports.
+
+Pages with content taller than the viewport use normal page scrolling. Do not force all content into one viewport or clip it.
+
+This prototype is mobile-first. It does not require a separate tablet or desktop design.
+
+Do not add complex breakpoints or redesign the approved mobile layout.
 
 ---
 

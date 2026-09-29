@@ -4,7 +4,6 @@ import { AppShell } from '../../components/AppShell/AppShell';
 import { FileRow } from '../../components/FileRow/FileRow';
 import { FilterBar } from '../../components/FilterBar/FilterBar';
 import { SearchBar } from '../../components/SearchBar/SearchBar';
-import { StatusBar } from '../../components/StatusBar/StatusBar';
 import { files, folders } from '../../mocks/files';
 import { useFilesState } from '../../state/files-state';
 import type { FilterType } from '../../types/files';
@@ -54,7 +53,6 @@ export function FileListPage() {
 
   return (
     <AppShell>
-      <StatusBar />
       <header className={styles.header}>
         <h1>My File</h1>
         <span className={styles.add} aria-label="Add (preview only)" role="img">

@@ -697,6 +697,12 @@ Layout có thể quản lý:
 - bottom navigation;
 - shared shell.
 
+Page container phải dùng toàn bộ chiều rộng mobile viewport. Khi viewport lớn hơn `480px`, page dùng mobile canvas `max-width: 480px` và căn giữa. Không lấy `360px` của frame Figma làm fixed width.
+
+Page dùng `min-height: 100dvh` với fallback phù hợp. Không lấy `800px` của frame Figma làm runtime height. Nội dung dài hơn viewport cuộn tự nhiên ở cấp page.
+
+Layout không render system status bar giả lập. Các thông tin như giờ, ngày, cột sóng, Wi-Fi và pin thuộc browser/operating system chrome.
+
 Không đưa business logic vào layout.
 
 ---
@@ -715,7 +721,11 @@ Lưu ý:
 
 - touch target hợp lý;
 - không tạo horizontal overflow ngoài chủ đích;
-- layout thích ứng với chiều rộng mobile;
+- layout dùng `width: 100%` trong mobile viewport;
+- viewport lớn hơn dùng mobile canvas tối đa `480px` và căn giữa;
+- page dùng `min-height: 100dvh`, không dùng fixed height;
+- không hard-code page shell ở `360 × 800` hoặc kích thước Figma reference khác;
+- không render system status bar giả lập;
 - không phụ thuộc hover để hoàn thành action;
 - bottom navigation và fixed element phải xử lý safe spacing hợp lý.
 
@@ -732,8 +742,10 @@ Không tự thêm nhiều breakpoint không cần thiết.
 Nếu chưa có requirement rõ ràng:
 
 - ưu tiên mobile;
-- sử dụng fluid width;
-- đặt max-width khi cần để prototype hiển thị hợp lý trên desktop browser;
+- sử dụng fluid width trong mobile viewport;
+- dùng `max-width: 480px` cho screen/page shell trên viewport lớn hơn và căn giữa;
+- dùng dynamic viewport làm min-height;
+- cho component và grid bên trong co giãn theo available width;
 - không redesign layout.
 
 ---

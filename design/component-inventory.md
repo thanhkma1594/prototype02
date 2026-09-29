@@ -38,7 +38,7 @@ Evidence labels used in this document:
 - Detached instances: **14** across 3 source groups.
 - Instances with direct local overrides: **124**; this count includes nested instances.
 - React code mapping: **Not Implemented**. No `src/` or `prototype/src/` implementation exists in the project at inspection time.
-- Out of scope by user decision: `Brand - System > Android-status-bar` and screen status-bar implementations.
+- Excluded from runtime by user decision: `Brand - System > Android-status-bar` and every screen status-bar implementation.
 - Need User Decision: **None**. Remaining ambiguity is retained as `Unresolved`.
 
 ## Main Inventory
@@ -58,7 +58,7 @@ Evidence labels used in this document:
 | Folder card | Search 1 screen-local frames | Observed Pattern | Content varies by folder name/count/storage | — | 12 occurrences across 2 screens | Partial | Not Implemented | Observed Pattern |
 | Folder navigation row | `My File / Internal storage` screen-local frames | Observed Pattern | Content varies by folder name/count | — | 3 occurrences | Partial | Not Implemented | Observed Pattern |
 | Type bottom sheet | Two `Overlay` frames | Observed Pattern | Same repeated structure | — | 2 overlays | Partial | Not Implemented | Observed Pattern |
-| `battery indicator` | Detached from library key `88f54c716bad53b749e130759e392cf17141818f` | Detached Instance | — | — | 10 Search screens | Hard-coded values observed | Not Implemented | Out of Scope |
+| `battery indicator` | Detached from library key `88f54c716bad53b749e130759e392cf17141818f` | Detached Instance | — | — | 10 Search screens | Hard-coded values observed | No mapping by requirement | Excluded from Runtime |
 | `List` | Detached from local component `900:12527` | Detached Instance | — | — | No Files/Search 1; Files/Search 1 | Partial | Not Implemented | Detached Instance |
 | `Nav bar` | Detached from library key `76ea4210f4964dfb01a78fa7f539842c2f666385` | Detached Instance | — | — | Internal storage; Download | Partial | Not Implemented | Detached Instance |
 
@@ -231,7 +231,7 @@ Counts below are actual instance counts inside `3. MY FILE`, including nested in
 | `ic_close` (`10005:46`) | Remote | 2 | Selected filter control | In Use |
 | nested `ic_close` (`10005:43`) | Remote | 2 | Nested in `ic_close` | In Use |
 | `ic_delete_text` (`10005:39`) | Remote | 2 | Nested in `ic_close` | In Use |
-| `Status bar - Android` (`10010:18153`) | Remote | 2 | Folder screens | Out of Scope |
+| `Status bar - Android` (`10010:18153`) | Remote | 2 | Folder screens | Excluded from Runtime |
 | `Icon/Back` (`10027:7905`) | Remote | 2 | Folder app bars | In Use |
 | `Note` (`10005:19`) | Remote | 2 | Direct children of `Search: Files Found`, outside detected screen frames | Unresolved |
 
@@ -329,7 +329,7 @@ Layers:
 - `14171:25594`, `14171:29027`, `14171:29412`, `14171:30018`, `14171:29830`
 - `14171:26210`, `14171:30200`, `14171:30881`, `14171:31518`, `14171:31107`
 
-All are `360 × 34` frames named `battery indicator`. They are recorded as detached evidence but status is `Out of Scope`, because Android status-bar patterns were explicitly excluded from the Design System scope.
+All are `360 × 34` frames named `battery indicator`. They remain recorded as detached Figma evidence, but are excluded from runtime by project requirement and must not be mapped into any screen/page.
 
 ### Detached List icon — 2
 
@@ -370,7 +370,7 @@ Figma reports **124 instances with direct overrides**. This is not the same as 1
 | `search-normal` remote source | 2 | `strokes` | No Files/Search 2; Files/Search 2 |
 | `ic_close` source tree | 6 nested/top-level instances | fills, radii, strokes, style IDs, names | Two selected-filter controls and nested sources |
 | `Note` | 2 | sizing and text fields | Outside detected screen frames |
-| `Status bar - Android` | 2 | sizing, alignment, fills/style IDs | Folder screens; Out of Scope |
+| `Status bar - Android` | 2 | sizing, alignment, fills/style IDs | Folder screens; Excluded from Runtime |
 | `Icon/Back` | 2 | sizing and fills | Folder screens |
 
 ## Potential Duplicates
@@ -419,13 +419,14 @@ The canonical `Brand - System > File` has no product-screen instances, while a s
 
 No Figma change was made.
 
-### Status-bar implementations remain mixed
+### Status-bar implementations remain mixed in Figma, excluded from runtime
 
 - 10 Search screens contain detached `battery indicator` frames.
 - 2 Folder screens contain remote `Status bar - Android` instances.
 - `Brand - System > Android-status-bar` is excluded by user decision.
+- Neither implementation may be rendered or mapped to code on any prototype screen/page.
 
-Status: `Out of Scope` for this component inventory.
+Status: `Excluded from Runtime` for this component inventory.
 
 ## Design System Gaps
 
@@ -487,8 +488,9 @@ Two `Note` instances (`14171:31773`, `14171:31780`) are direct children of the `
 
 1. Use `Brand - System > File` as the canonical File source in future code mapping, while preserving the documented fact that current Figma screens still use `12010:9721`.
 2. Keep `Search bar / Done` and `Search bar / finish` as separate states.
-3. Do not restore `Brand - System > Android-status-bar` to the catalog without a new user decision.
+3. Do not restore or map `Brand - System > Android-status-bar`, `battery indicator`, or another simulated system status bar without a new user decision.
 4. Do not infer a lifecycle decision from `Unused`.
 5. Do not treat an `Observed Pattern` as an official Design System component.
 6. Do not treat local overrides as defects without reviewing the intended screen state.
 7. Resolve the Android keyboard component-set error before relying on its full property schema.
+8. Treat `360 × 800` screen frames as audit references only; runtime page is full width on mobile, capped at `480px` on larger viewports, and uses dynamic viewport min-height.

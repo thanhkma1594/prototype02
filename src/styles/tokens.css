@@ -21,5 +21,6 @@
   --spacing-xl: 20px;
   --spacing-xxl: 24px;
   --spacing-3xl: 32px;
+  --layout-mobile-canvas-max: 480px;
   --font-family: "SVN-Poppins", "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }

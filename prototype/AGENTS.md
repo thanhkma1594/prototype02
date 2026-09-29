@@ -225,6 +225,14 @@ Code phải bám Figma đã duyệt về:
 
 Không redesign trong lúc code.
 
+Override toàn project cho screen/page:
+
+- không render system status bar giả lập từ Figma;
+- page shell dùng `width: 100%` trong mobile viewport;
+- viewport lớn hơn dùng mobile canvas `max-width: 480px` và căn giữa;
+- dùng `min-height: 100dvh`, không khóa height theo frame Figma;
+- không khóa width ở `360px` hoặc height ở `800px`.
+
 Nếu Figma có reusable component, ưu tiên tạo reusable React component tương ứng.
 
 ---

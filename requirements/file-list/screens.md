@@ -31,8 +31,13 @@ Target:
 
 ```text
 Mobile Web
-360 × 800
+Full width trong mobile viewport
+Mobile canvas tối đa 480px trên viewport lớn
 ```
+
+Frame `360 × 800` trong Figma chỉ là visual reference. Runtime không khóa width ở `360px` hoặc height ở `800px`.
+
+File List dùng `min-height` bằng dynamic viewport. Khi nội dung dài hơn viewport, toàn page cuộn tự nhiên.
 
 File List là entry screen của prototype.
 
@@ -44,7 +49,6 @@ Screen bao gồm:
 
 ```text
 File List
-├── Status Bar
 ├── Header
 │   ├── Title: "My File"
 │   └── Add Button
@@ -69,6 +73,8 @@ File List
 Bottom Tab xuất hiện trong một số Figma frames nhưng không thuộc prototype hiện tại theo `navigation.md`.
 
 Không implement Bottom Tab trong File List.
+
+Không implement system status bar giả lập. Giờ, ngày, cột sóng, Wi-Fi, phần trăm pin và biểu tượng pin trong frame Figma không thuộc UI của File List.
 
 ---
 

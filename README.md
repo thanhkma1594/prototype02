@@ -14,6 +14,7 @@ Prototype phục vụ review UI/UX, demo interaction và kiểm thử flow. Ứn
 - Mở màn hình chi tiết tệp.
 - Giữ keyword, bộ lọc, kết quả và vị trí cuộn khi quay lại danh sách.
 - Hiển thị trang 404 cho route không hợp lệ.
+- Mọi page full width trên mobile và dùng mobile canvas căn giữa trên viewport lớn.
 
 ## Ngoài phạm vi
 
@@ -27,6 +28,7 @@ Các thành phần sau chỉ mang tính trình bày hoặc chưa được triể
 - Category và Date modified filter;
 - chỉnh sửa hoặc xóa tệp;
 - Bottom Tab và bàn phím được minh họa trong Figma;
+- system status bar giả lập như giờ, cột sóng, Wi-Fi và pin;
 - backend, API, authentication và persistent storage.
 
 ## Công nghệ
@@ -81,6 +83,15 @@ npm run preview
 | Route khác | Trang 404 |
 
 Prototype không có route `/search`; tìm kiếm là state của màn hình `/files`.
+
+## Responsive và system UI
+
+- Figma `360 × 800` chỉ là viewport tham chiếu.
+- Screen/page không khóa width `360px` hoặc height `800px`.
+- Mobile viewport sử dụng toàn bộ chiều rộng thiết bị.
+- Viewport lớn hơn dùng mobile canvas tối đa `480px` và căn giữa.
+- Page dùng dynamic viewport làm min-height; nội dung dài cuộn tự nhiên.
+- Prototype không tự vẽ status bar; system UI do hệ điều hành hoặc trình duyệt quản lý.
 
 ## Cấu trúc chính
 

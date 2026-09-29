@@ -1,6 +1,5 @@
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AppShell } from '../../components/AppShell/AppShell';
-import { StatusBar } from '../../components/StatusBar/StatusBar';
 import { files } from '../../mocks/files';
 import styles from './FileDetailPage.module.css';
 
@@ -17,7 +16,6 @@ export function FileDetailPage() {
 
   return (
     <AppShell>
-      <StatusBar />
       <header className={styles.header}>
         <button type="button" onClick={goBack} aria-label="Back to files">
           <span aria-hidden="true">‹</span>

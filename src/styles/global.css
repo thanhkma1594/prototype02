@@ -5,13 +5,14 @@
 }
 
 html {
+  min-height: 100%;
   background: var(--color-while-grey);
 }
 
 body {
   margin: 0;
-  min-width: 320px;
   min-height: 100vh;
+  min-height: 100dvh;
   color: var(--color-black);
   background: var(--color-while-grey);
   font-family: var(--font-family);
@@ -36,4 +37,5 @@ input:focus-visible,
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
 }

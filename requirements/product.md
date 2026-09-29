@@ -147,6 +147,18 @@ Mobile Web
 
 Prototype được thiết kế cho trải nghiệm trên điện thoại di động.
 
+### Global screen presentation
+
+Mọi screen/page trong prototype:
+
+- không hiển thị system status bar giả lập, bao gồm giờ, ngày, cột sóng, Wi-Fi, phần trăm pin hoặc biểu tượng pin;
+- sử dụng toàn bộ chiều rộng khả dụng khi viewport ở kích thước mobile;
+- giới hạn trong mobile canvas tối đa `480px` và căn giữa khi viewport lớn hơn;
+- không hard-code chiều rộng screen/page theo frame Figma.
+- dùng chiều cao viewport làm mức tối thiểu, không khóa chiều cao theo frame Figma.
+
+System status bar thật do hệ điều hành hoặc trình duyệt quản lý, không thuộc UI của prototype.
+
 ---
 
 ## 9. Responsive Scope
@@ -154,16 +166,28 @@ Prototype được thiết kế cho trải nghiệm trên điện thoại di đ�
 Phạm vi responsive hiện tại:
 
 ```text
-Chỉ Mobile
+Mobile-first, fluid width
 ```
+
+Yêu cầu bắt buộc:
+
+- screen/page có `width: 100%` theo viewport;
+- mobile viewport đến `480px` sử dụng toàn bộ chiều rộng thiết bị;
+- viewport lớn hơn `480px` dùng mobile canvas `max-width: 480px` và căn giữa;
+- không dùng `360px` hoặc kích thước frame Figma làm width cố định của page shell;
+- không tạo horizontal overflow ngoài chủ đích.
+- screen/page dùng `min-height: 100dvh` hoặc fallback tương đương;
+- không dùng `800px` làm runtime height;
+- nội dung dài hơn viewport phải được cuộn tự nhiên ở cấp page.
 
 Không yêu cầu:
 
 - tablet layout;
 - desktop layout;
-- responsive layout đầy đủ cho nhiều breakpoint.
+- thiết kế riêng cho tablet hoặc desktop;
+- nhiều breakpoint phức tạp.
 
-Nếu prototype được mở trên desktop browser, việc hiển thị desktop không phải là target design chính.
+Nếu prototype được mở trên desktop browser, mobile canvas được căn giữa và không bị kéo giãn thành desktop layout.
 
 ---
 

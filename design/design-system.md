@@ -10,7 +10,7 @@ Tài liệu này được trích xuất từ file Figma hiện tại của proje
 - Product screens section: `3. MY FILE` (`14084:11660`)
 - Ngày audit: `2026-09-29`
 - Target platform theo requirement: Mobile Web
-- Viewport đang dùng trên Figma: `360 × 800`
+- Viewport reference đang dùng trên Figma: `360 × 800` (không phải runtime width)
 
 Figma là nguồn sự thật cho visual. Requirement vẫn là nguồn sự thật cho business behavior.
 
@@ -23,8 +23,9 @@ Figma là nguồn sự thật cho visual. Requirement vẫn là nguồn sự th�
 ### Quyết định đã xác nhận
 
 1. `Brand - System > File` (`14193:14497`) là component chuẩn.
-2. `Brand - System > Android-status-bar` không thuộc Design System cần document. Tài liệu này không dùng component đó làm nguồn chuẩn và không yêu cầu xoá layer khỏi Figma.
+2. `Brand - System > Android-status-bar` và mọi status-bar presentation khác không được render trong prototype. Tài liệu vẫn ghi nhận layer Figma làm bằng chứng audit nhưng không ánh xạ chúng sang screen/page hoặc reusable component.
 3. `Search bar / Done` và `Search bar / finish` là hai state riêng biệt có chủ đích.
+4. Screen/page runtime full width trong mobile viewport; viewport lớn hơn dùng mobile canvas tối đa `480px` và căn giữa. Frame `360 × 800` chỉ là visual reference, không phải runtime width/height.
 
 ## 2. Inventory
 
@@ -378,14 +379,14 @@ Prototype phải sử dụng visual của canonical `Brand - System > File`, kh�
 
 ### Android status bar
 
-Theo quyết định người dùng, `Brand - System > Android-status-bar` không phải component chuẩn và không được đưa vào component catalog.
+Theo quyết định người dùng, `Brand - System > Android-status-bar` không phải component chuẩn, không được đưa vào component catalog và không được render trên bất kỳ screen/page nào của prototype.
 
 Screen hiện vẫn có hai implementation quan sát được:
 
 - 10 Search screens dùng frame trực tiếp `battery indicator`, kích thước `360 × 34`.
 - 2 Folder screens dùng remote component `Status bar - Android` (`10010:18153`).
 
-Hai implementation này được coi là screen/platform presentation, không có mapping sang reusable project component trong tài liệu hiện tại.
+Hai implementation này chỉ là bằng chứng quan sát từ Figma. Chúng không có mapping sang code và phải được bỏ qua khi chuyển screen sang prototype.
 
 ## 11. Design System Gaps
 
@@ -491,9 +492,20 @@ Figma báo `Component set has existing errors`, nên Plugin API không đọc đ
 
 Hai component sets không hoàn toàn giống nhau; khác biệt rõ nhất nằm trong hình học và shadow của variant `PPT`.
 
-### Screen status bars
+### Screen status bars — excluded from runtime
 
-Sau khi loại `Brand - System > Android-status-bar`, Search và Folder vẫn đang dùng hai implementation status bar khác nhau. Tài liệu không chọn một implementation làm reusable project component vì người dùng đã loại pattern này khỏi Design System.
+Search và Folder trong Figma vẫn chứa hai implementation status bar khác nhau. Theo requirement hiện tại, cả hai đều bị loại khỏi runtime; không screen/page nào được render giờ, ngày, cột sóng, Wi-Fi, phần trăm pin hoặc biểu tượng pin.
+
+### Figma frame width vs runtime width
+
+Các frame `360 × 800` là reference để đối chiếu visual ở kích thước mobile gốc. Khi mapping sang code:
+
+- screen/page và full-screen overlay dùng `width: 100%`;
+- mobile viewport full width; viewport lớn hơn dùng page `max-width: 480px` và căn giữa;
+- không dùng `360px` làm fixed page width hoặc `800px` làm fixed page height;
+- page dùng dynamic viewport làm min-height và cuộn tự nhiên khi nội dung dài;
+- layout bên trong giữ token, spacing và hierarchy nhưng co giãn theo available width;
+- không tạo desktop redesign hoặc breakpoint phức tạp nếu chưa có requirement.
 
 ## 13. Handoff rules
 
@@ -502,7 +514,8 @@ Sau khi loại `Brand - System > Android-status-bar`, Search và Folder vẫn đ
 3. Dùng canonical `Brand - System > File` cho prototype, không dùng legacy `File` dù screen Figma chưa migrate.
 4. Giữ `Search bar / Done` và `Search bar / finish` là hai state khác nhau.
 5. Chọn Search bar state theo đúng screen đang implement; không tự suy diễn trigger giữa `Done` và `finish`.
-6. Không tạo reusable Android status bar từ component đã bị loại.
+6. Không tạo reusable Android status bar và không render bất kỳ simulated system status bar nào.
 7. Hard-coded illustration values vẫn là local visual values cho tới khi Figma định nghĩa token/style tương ứng.
 8. Các Text Styles chưa dùng trên screen vẫn là styles hợp lệ vì tồn tại trực tiếp trong Design System.
 9. Không dùng paint/effect/grid style chỉ vì chúng tồn tại; chỉ áp dụng khi screen hoặc Figma xác nhận.
+10. Dùng full width trong mobile viewport, mobile canvas tối đa `480px` trên viewport lớn và dynamic viewport min-height; không khóa page theo frame Figma.
