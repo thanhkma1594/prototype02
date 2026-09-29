@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppShell } from '../../components/AppShell/AppShell';
 import { FileRow } from '../../components/FileRow/FileRow';
 import { FilterBar } from '../../components/FilterBar/FilterBar';
+import { ListIcon } from '../../components/ListIcon/ListIcon';
 import { SearchBar } from '../../components/SearchBar/SearchBar';
 import { files, folders } from '../../mocks/files';
 import { useFilesState } from '../../state/files-state';
@@ -68,9 +69,9 @@ export function FileListPage() {
       {!hasFilters ? (
         <div className={styles.defaultContent}>
           <section aria-labelledby="recent-files-title">
-            <div className={styles.sectionHeader}>
+            <div className={`${styles.sectionHeader} ${styles.recentHeader}`}>
               <h2 id="recent-files-title">Recent Files</h2>
-              <img src="/assets/layout.svg" alt="" aria-hidden="true" />
+              <ListIcon />
             </div>
             {files.length ? (
               <>

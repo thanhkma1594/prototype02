@@ -320,6 +320,14 @@ Token/style bindings:
 - Cursor: `Color/Primary/2`.
 - Typing clear icon: `Color/Neutral/Grey`.
 
+Web runtime constraints:
+
+- canonical typography vẫn là `Medium/B3` 14/20;
+- riêng native HTML input trên thiết bị touch dùng computed font-size tối thiểu `16px` để ngăn iOS WebKit auto-zoom trong Chrome/Safari;
+- không khóa browser zoom bằng `maximum-scale=1` hoặc `user-scalable=no`;
+- inner input không dùng focus outline bị clip bởi Search bar; caret/state icon là focus feedback trực tiếp;
+- `Normal`/`Typing` dùng `arrow-left`, `Done`/`finish` dùng `search-normal`, Typing clear dùng `close-circle`.
+
 **UNRESOLVED:** Figma và component description chưa nêu trigger/interaction rule phân biệt `Done` với `finish`. Prototype phải bám state được chỉ định trên từng screen; không tự hoán đổi hai state.
 
 ### 8.3 File

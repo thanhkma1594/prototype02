@@ -65,6 +65,15 @@ Search for <keyword>
 
 và có clear/delete-text control.
 
+Runtime behavior trên mobile browser:
+
+- input phải có computed font-size tối thiểu `16px` trên thiết bị touch để Chrome/Safari trên iOS không tự zoom viewport khi focus;
+- platform override này chỉ áp dụng cho HTML input, không thay đổi typography token `Medium/B3` của các text khác;
+- chỉ hiển thị một caret tại vị trí nhập liệu;
+- không hiển thị focus outline bị cắt ở hai cạnh của input;
+- trạng thái focus/typing dùng `arrow-left` và clear control dùng asset `close-circle` theo canonical Search bar;
+- trạng thái không focus dùng search icon theo state tương ứng.
+
 ---
 
 ## 4. Search Behavior Representation

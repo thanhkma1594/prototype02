@@ -149,6 +149,13 @@ No action
 
 Không implement List/Grid switching.
 
+Visual mapping:
+
+- dùng toàn bộ Figma node `List` (`14171:25633`), không dùng riêng một child layer;
+- icon canvas `20 × 20` trong wrapper `32 × 32`;
+- không kéo giãn SVG hoặc thay đổi aspect ratio;
+- Recent Files header cao `36px`, padding trái `16px`, padding phải `8px`.
+
 ---
 
 ## 7. File Row
@@ -207,6 +214,16 @@ More Options icon được hiển thị ở cuối row.
 Visible
 No action
 ```
+
+Visual mapping:
+
+- File Row dùng full width của mobile canvas;
+- row padding trái `16px`, phải `4px`, dọc `6px`;
+- khoảng cách giữa file slot, text và More Options là `12px`;
+- More Options wrapper `32 × 32`;
+- `ic_expand` giữ kích thước gốc `20 × 20` và xoay `90°` để hiển thị ba chấm dọc;
+- không scale asset xuống `18 × 18`;
+- trục phải của More Options và icon Recent Files phải giữ đúng offset tương ứng từ Figma (`4px` và `8px`).
 
 ---
 

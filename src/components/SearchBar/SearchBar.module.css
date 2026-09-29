@@ -11,11 +11,16 @@
   background: var(--color-while-bas);
 }
 
-.search > img {
+.leadingIcon {
+  display: grid;
   width: 40px;
   height: 40px;
-  padding: 8px;
   flex: 0 0 40px;
+  place-items: center;
+}
+
+.leadingIcon img {
+  display: block;
 }
 
 .search input {
@@ -30,21 +35,35 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+  caret-color: var(--color-primary-2);
+}
+
+.search input:focus-visible {
+  outline: none;
 }
 
 .search input::placeholder {
-  color: var(--color-grey);
+  color: var(--color-light-grey);
 }
 
 .clear {
-  width: 36px;
-  height: 36px;
+  display: grid;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  color: var(--color-dark-grey);
   background: transparent;
-  font-size: 25px;
-  line-height: 34px;
   cursor: pointer;
+  place-items: center;
+}
+
+.clear img {
+  display: block;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .search input {
+    font-size: 16px;
+  }
 }

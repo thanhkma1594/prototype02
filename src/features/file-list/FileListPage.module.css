@@ -56,14 +56,15 @@
   line-height: 24px;
 }
 
-.sectionHeader img {
-  width: 24px;
-  height: 24px;
+.recentHeader {
+  margin-right: -8px;
 }
 
 .fileList {
   display: flex;
   flex-direction: column;
+  margin-right: -16px;
+  margin-left: -16px;
 }
 
 .seeAll {

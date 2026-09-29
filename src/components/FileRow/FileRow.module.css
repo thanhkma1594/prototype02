@@ -3,7 +3,8 @@
   align-items: center;
   width: 100%;
   height: 48px;
-  padding: 6px 8px 6px 2px;
+  gap: 12px;
+  padding: 6px 4px 6px 16px;
   border: 0;
   border-radius: 8px;
   background: transparent;
@@ -11,8 +12,12 @@
   cursor: pointer;
 }
 
-.row:hover {
-  background: var(--color-while-bas);
+.fileIconSlot {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
 }
 
 .copy {
@@ -20,7 +25,6 @@
   min-width: 0;
   flex: 1;
   flex-direction: column;
-  margin-left: 14px;
 }
 
 .name {
@@ -46,11 +50,23 @@
   height: 32px;
   flex: 0 0 32px;
   place-items: center;
-  margin-left: 4px;
   pointer-events: none;
 }
 
-.more img {
-  width: 18px;
-  height: 18px;
+.moreIcon {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  transform: rotate(90deg);
+}
+
+.moreIcon img {
+  display: block;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .row:hover {
+    background: var(--color-while-bas);
+  }
 }

@@ -1,0 +1,39 @@
+.slot {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  place-items: center;
+}
+
+.icon {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.icon img {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+
+.topLeft,
+.topRight {
+  top: 1.5px;
+}
+
+.topLeft {
+  left: 1.452px;
+}
+
+.topRight {
+  left: 10.702px;
+}
+
+.bottomRow {
+  top: 10.662px;
+  left: 1.452px;
+}

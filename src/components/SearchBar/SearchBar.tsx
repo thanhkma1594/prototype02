@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './SearchBar.module.css';
 
 interface SearchBarProps {
@@ -7,6 +8,8 @@ interface SearchBarProps {
 }
 
 export function SearchBar({ value, onChange, onSearch }: SearchBarProps) {
+  const [isFocused, setIsFocused] = useState(false);
+
   return (
     <form
       className={styles.search}
@@ -16,17 +19,27 @@ export function SearchBar({ value, onChange, onSearch }: SearchBarProps) {
         onSearch();
       }}
     >
-      <img src="/assets/search.svg" alt="" aria-hidden="true" />
+      <span className={styles.leadingIcon} aria-hidden="true">
+        <img src={isFocused ? '/assets/arrow-left.svg' : '/assets/search.svg'} alt="" />
+      </span>
       <input
         aria-label="Search files by name"
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder="Enter file name"
         autoComplete="off"
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
       />
-      {value ? (
-        <button className={styles.clear} type="button" onClick={() => onChange('')} aria-label="Clear search keyword">
-          ×
+      {value && isFocused ? (
+        <button
+          className={styles.clear}
+          type="button"
+          onMouseDown={(event) => event.preventDefault()}
+          onClick={() => onChange('')}
+          aria-label="Clear search keyword"
+        >
+          <img src="/assets/close-circle.svg" alt="" />
         </button>
       ) : null}
     </form>

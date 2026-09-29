@@ -470,6 +470,8 @@ Folder cards
 
 They may have standard hover/pressed cursor feedback only if it does not imply unsupported functionality.
 
+Apply hover styling only when the device reports hover capability. Touch interaction must not leave a sticky hover background on File rows.
+
 Do not open menus, modals, routes, or overlays for them.
 
 ---
@@ -1025,6 +1027,32 @@ input has accessible label/aria-label
 bottom sheet controls are usable by keyboard
 visible focus behavior is preserved
 ```
+
+Search input exception:
+
+```text
+touch-device computed font-size >= 16px
+no clipped inner input outline
+one native caret at the insertion point
+do not disable browser pinch zoom
+```
+
+Use the canonical Search bar assets/state mapping. Do not replace `close-circle` with a text multiplication character.
+
+The Recent Files layout icon must use complete Figma node `14171:25633`: a `20 × 20` icon centered inside a `32 × 32` wrapper. Do not stretch a child SVG to fill the icon slot.
+
+File Row geometry must preserve the approved Figma right rail:
+
+```text
+row spans the mobile canvas width
+padding-left: 16px
+padding-right: 4px
+gap: 12px
+More Options wrapper: 32 × 32
+ic_expand: native 20 × 20, rotated 90deg
+```
+
+Do not render the unrotated horizontal `ic_expand` or resize it to `18 × 18`.
 
 Do not add complex accessibility frameworks.
 
