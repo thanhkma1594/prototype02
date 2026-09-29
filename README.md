@@ -76,11 +76,11 @@ npm run preview
 
 ## Routes
 
-| Route | Mô tả |
-| --- | --- |
-| `/files` | Danh sách, tìm kiếm và lọc tệp |
+| Route        | Mô tả                              |
+| ------------ | ---------------------------------- |
+| `/files`     | Danh sách, tìm kiếm và lọc tệp     |
 | `/files/:id` | Placeholder thông tin chi tiết tệp |
-| Route khác | Trang 404 |
+| Route khác   | Trang 404                          |
 
 Prototype không có route `/search`; tìm kiếm là state của màn hình `/files`.
 
@@ -93,7 +93,7 @@ Prototype không có route `/search`; tìm kiếm là state của màn hình `/f
 - Page dùng dynamic viewport làm min-height; nội dung dài cuộn tự nhiên.
 - Prototype không tự vẽ status bar; system UI do hệ điều hành hoặc trình duyệt quản lý.
 
-## Cấu trúc chính
+## Cấu trúc chính.
 
 ```text
 src/
